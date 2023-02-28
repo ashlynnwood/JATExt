@@ -2,7 +2,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
-// Add and configure workbox plugins for a service worker and manifest file.
 
 module.exports = () => {
   return {
@@ -16,33 +15,35 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
+      // Webpack plugin that generates html file and injects bundles
       new HtmlWebpackPlugin({
         template: './index.html',
         favicon:'./favicon.ico',
         title: 'JATE',
       }),
+      // Injects custom service worker
       new InjectManifest({
         swSrc: './src-sw.js',
         swDest: 'src-sw.js',
       }),
+      // Create a manifest.json:2
       new WebpackPwaManifest({
-        // Create a manifest.json:2
-          fingerprints: false,
-          inject: true,
-          name: 'JATE',
-          short_name: 'JATE',
-          description: 'Just Another Text Editor',
-          background_color: '#7eb4e2',
-          theme_color: '#7eb4e2',
-          start_url: './',
-          publicPath: './',
-          icons: [
-            {
-              src: path.resolve('assets/images/logo.png'),
-              sizes: [96, 128, 192, 256, 384, 512],
-              destination: path.join('assets', 'icons'),
-            },
-          ],
+        fingerprints: false,
+        inject: true,
+        name: 'JATE',
+        short_name: 'JATE',
+        description: 'Just Another Text Editor',
+        background_color: '#7eb4e2',
+        theme_color: '#7eb4e2',
+        start_url: './',
+        publicPath: './',
+        icons: [
+          {
+            src: path.resolve('assets/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
+          },
+        ],
       }),
     ],
 
@@ -53,7 +54,7 @@ module.exports = () => {
           test: /\.css$/i,
           use: ['style.loader', 'css-loader'],
         },
-        // Babel
+        // Babel to use ES6
         {
           test: /\.m?js$/,
           exclude: /node_modules/,
