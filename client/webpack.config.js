@@ -35,8 +35,8 @@ module.exports = () => {
         description: 'Just Another Text Editor',
         background_color: '#7eb4e2',
         theme_color: '#7eb4e2',
-        start_url: './',
-        publicPath: './',
+        start_url: '/',
+        publicPath: '/',
         icons: [
           {
             src: path.resolve('src/images/logo.png'),
@@ -52,7 +52,7 @@ module.exports = () => {
         // CSS loader
         {
           test: /\.css$/i,
-          use: ['style.loader', 'css-loader'],
+          use: ['style-loader', 'css-loader'],
         },
         // Babel to use ES6
         {
