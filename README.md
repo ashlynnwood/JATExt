@@ -3,10 +3,10 @@
   ![GitHub-license](https://img.shields.io/badge/License-MIT-blue)
 
   ## Description
-  This is JATE, "Just Another Text Editor," which is a PWA created as a single page application. It can run in the browser or be downloaded as an app, and can function both online and offline.
+  This is JATE, "Just Another Text Editor," which is a PWA created as a single page application. It was designed to let users haveIt can run in the browser or be downloaded as an app, and can function both online and offline.
 
   ## Preview
-  ![preview]()
+  ![preview](./jate.png)
 
   ## Try me out!
   [JATE](https://still-beach-37954.herokuapp.com/)
